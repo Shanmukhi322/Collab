@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriConnect Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            width: 30%;
+            margin: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            color: #4CAF50;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .card button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .card button:hover {
+            background-color: #45a049;
+        }
+
+        .alert {
+            background-color: #ff9800;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .alert h4 {
+            margin: 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>AgriConnect Dashboard</h1>
+        <p>Empowering Farmers with Real-Time Insights</p>
+    </header>
+
+    <nav>
+        <a href="#weather">Weather Alerts</a>
+        <a href="#soilHealth">Soil Health</a>
+        <a href="#cropPrices">Crop Prices</a>
+        <a href="#sales">Sales</a>
+    </nav>
+
+    <div class="container">
+        <div class="card" id="weather">
+            <h3>Live Weather Alerts</h3>
+            <p id="weather-info">Loading weather data...</p>
+            <button onclick="getWeather()">Get Weather</button>
+        </div>
+
+        <div class="card" id="soilHealth">
+            <h3>Soil Health (IoT)</h3>
+            <p id="soil-info">Loading soil health data...</p>
+            <button onclick="getSoilHealth()">Check Soil Health</button>
+        </div>
+
+        <div class="card" id="cropPrices">
+            <h3>Crop Price Tracker</h3>
+            <p id="price-info">Loading crop prices...</p>
+            <button onclick="getCropPrices()">Check Prices</button>
+        </div>
+
+        <div class="card" id="sales">
+            <h3>Farmer-to-Buyer Sales</h3>
+            <button onclick="openSalesPage()">Start Selling</button>
+        </div>
+    </div>
+
+    <div id="alert-container"></div>
+
+    <footer>
+        <p>&copy; 2025 AgriConnect. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Example function to simulate weather data fetching
+        function getWeather() {
+            // In real scenario, replace with an API call
+            document.getElementById('weather-info').innerHTML = "Current temperature: 30°C. High alert for rain tomorrow!";
+        }
+
+        // Example function to simulate soil health data fetching
+        function getSoilHealth() {
+            // Simulate IoT sensor data (Replace with real sensor data in actual app)
+            document.getElementById('soil-info').innerHTML = "Soil pH: 6.8 (Ideal), Moisture Level: 75%";
+        }
+
+        // Example function to simulate crop prices fetching
+        function getCropPrices() {
+            // Replace this with API fetching
+            document.getElementById('price-info').innerHTML = "Rice: $0.50/kg, Wheat: $0.60/kg, Corn: $0.45/kg";
+        }
+
+        // Example function to handle direct sales
+        function openSalesPage() {
+            alert("Redirecting to the sales portal for farmer-to-buyer transactions.");
+            // Ideally, here you would redirect to another page or show a modal for selling items
+        }
+
+        // Example weather alert
+        function displayWeatherAlert(message) {
+            const alertContainer = document.getElementById('alert-container');
+            const alertDiv = document.createElement('div');
+            alertDiv.classList.add('alert');
+            alertDiv.innerHTML = `<h4>Weather Alert</h4><p>${message}</p>`;
+            alertContainer.appendChild(alertDiv);
+        }
+
+        // Simulate a weather alert on page load
+        setTimeout(() => {
+            displayWeatherAlert("Severe thunderstorms expected in your region. Take precautions.");
+        }, 2000);
+    </script>
+
+</body>
+</html>
